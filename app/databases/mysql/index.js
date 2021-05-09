@@ -44,10 +44,9 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
-console.log({ keys: Object.keys(db) });
 
-db["booking"].belongsTo(db.user, { foreignKey: "user_id", targetKey: "id" });
-db["booking"].belongsTo(db.car, { foreignKey: "car_id", targetKey: "id" });
+db["Booking"].belongsTo(db.User, { foreignKey: "user_id", targetKey: "id" });
+db["Booking"].belongsTo(db.Car, { foreignKey: "car_id", targetKey: "id" });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

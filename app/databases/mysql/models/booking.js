@@ -1,11 +1,8 @@
 /* jshint indent: 2 */
 
-const Car = require("./car");
-const User = require("./user");
-
 module.exports = function (sequelize, DataTypes) {
   const Booking = sequelize.define(
-    "booking",
+    "Booking",
     {
       id: {
         type: DataTypes.INTEGER(11),

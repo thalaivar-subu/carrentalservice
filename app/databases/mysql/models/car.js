@@ -2,7 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
   const Car = sequelize.define(
-    "car",
+    "Car",
     {
       id: {
         type: DataTypes.INTEGER(11),

@@ -2,7 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define(
-    "user",
+    "User",
     {
       id: {
         type: DataTypes.INTEGER(11),
