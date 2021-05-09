@@ -3,16 +3,26 @@ import logEventErrors from "./utils/eventerrors";
 import express from "express";
 import logger from "./utils/logger";
 import Middlewares from "./middlewares/index";
+import Routes from "./apis/index";
 import { APP_NAME, PORT } from "./lib/constants";
+import Init from "./lib/init";
 
-const app = express();
+const StartApplication = async () => {
+  await Init();
+  
+  const app = express();
 
-Middlewares(app);
+  Middlewares(app);
 
-// Healtcheck End point
-app.get("/", (req, res) => res.status(200).send({ message: "I am Alive" }));
+  Routes(app);
 
-// App Listens
-app.listen(PORT, () => {
-  logger.info(`${APP_NAME} app listening at http://localhost:${PORT}`);
-});
+  // Healtcheck End point
+  app.get("/", (req, res) => res.status(200).send({ message: "I am Alive" }));
+
+  // App Listens
+  app.listen(PORT, () => {
+    logger.info(`${APP_NAME} app listening at http://localhost:${PORT}`);
+  });
+};
+
+StartApplication();

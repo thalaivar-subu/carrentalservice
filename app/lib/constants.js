@@ -1,16 +1,13 @@
-export const APP_NAME = process.env.APP_NAME || "node-boilerplate";
+export const APP_NAME = process.env.APP_NAME || "carrentalservice";
 export const NODE_ENV = process.env.NODE_ENV || "development";
 export const LOGPATH = process.env.LOGPATH || "logs";
-export const LOG_FILE_NAME = `${LOGPATH}/${
-  APP_NAME +
-  new Date().getFullYear() +
-  "-" +
-  (new Date().getMonth() + 1) +
-  "-" +
-  new Date().getDate()
-}.log`;
+export const LOG_FILE_NAME = `${LOGPATH}/${APP_NAME}.log`;
 export const APP_PORT = 8080;
 export const TEST_PORT = 8081;
 export const TEST_URL = `http://127.0.0.1:${TEST_PORT}`;
 export const PORT = NODE_ENV === "test" ? TEST_PORT : APP_PORT;
 export const LOCAL_ENVS = ["test", "development"];
+export const MYSQL_DB = process.env.MYSQL_DB || "carrentalservice";
+export const MYSQL_UNAME = process.env.MYSQL_UNAME || "root";
+export const MYSQL_PWD = process.env.MYSQL_PWD || "123456";
+export const MYSQL_HOST = process.env.MYSQL_HOST || "localhost";

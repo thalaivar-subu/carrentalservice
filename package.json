@@ -1,14 +1,19 @@
 {
-  "name": "node-boilerplate",
+  "name": "carrentalservice",
   "version": "1.0.0",
   "description": "API using Graph Data Structure",
   "main": "index.js",
+  "engines": {
+    "node": "12.9.1",
+    "npm": "7.11.2"
+  },
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build-server": "./node_modules/@babel/cli/bin/babel.js -d ./build ./app -s",
     "build": "npm run clean && npm run build-server",
     "build-test": "./node_modules/@babel/cli/bin/babel.js -d ./build ./app -s && npm run clean && npm run build-server",
     "start": "npm run build && node ./build/index.js",
+    "start-dev": "nodemon --exec babel-node app/index.js",
     "test": "start-server-and-test 'npm run build &&  NODE_ENV=test node ./build/index.js' 8081 'jest --coverage  --verbose'",
     "lint": "npx eslint . --ext .js",
     "lint-fix": "npx eslint . --ext .js --fix",
@@ -16,17 +21,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thalaivar-subu/node-boilerplate.git"
+    "url": "git+https://github.com/thalaivar-subu/carrentalservice.git"
   },
   "author": "Subramanian.VE",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thalaivar-subu/node-boilerplate/issues"
+    "url": "https://github.com/thalaivar-subu/carrentalservice/issues"
   },
-  "homepage": "https://github.com/thalaivar-subu/node-boilerplate#readme",
+  "homepage": "https://github.com/thalaivar-subu/carrentalservice#readme",
   "devDependencies": {
     "@babel/cli": "7.12.10",
     "@babel/core": "7.12.7",
+    "@babel/node": "7.13.13",
     "@babel/plugin-transform-runtime": "7.12.1",
     "@babel/preset-env": "7.12.7",
     "@babel/register": "7.12.10",
@@ -44,6 +50,8 @@
     "express-http-context": "1.2.4",
     "fast-safe-stringify": "2.0.7",
     "morgan": "1.10.0",
+    "mysql2": "2.2.5",
+    "sequelize": "6.6.2",
     "uniqid": "5.2.0",
     "winston": "3.3.3"
   }
